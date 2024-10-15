@@ -2,6 +2,15 @@
 import hashlib
 
 def H(mdpmaitre:str , tag:str) -> str:
+    """
+    Génère une chaîne de caractères hachée basée sur la concaténation du mot de passe maître et d'un tag.
+        mdpmaitre (str): Le mot de passe maître.
+        
+        tag (str): Le tag à concaténer avec le mot de passe maître.
+        str: Une chaîne de caractères hachée dérivée de la concaténation du mot de passe maître et du tag.
+    def H(mdpmaitre: str, tag: str) -> str:
+        
+    """
     
     #Hash de la concatenation de deux chaines de caractères
     chaineconat = mdpmaitre + tag
