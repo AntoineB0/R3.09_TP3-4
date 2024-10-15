@@ -25,7 +25,7 @@ def H(mdpmaitre:str , tag:str , taille:int) -> str:
             somme += ord(tab[i][j])**taille*decoupe
         #traduction en caractère normaux commme spéciaux
         resultat += chr(somme%94 + 33)
-    print(resultat)
+    return(resultat)
 
 
 
