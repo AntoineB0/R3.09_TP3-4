@@ -43,14 +43,14 @@ def H(mdpmaitre:str , tag:str , taille:int) -> str:
 
 
 
-"""Test
+
 if __name__ == "__main__":
     print("-----------------")
-    print(H("lemotdepasse","Unilim",64))
+    print(H("lemotdepasse","Unilim",12))
     print(H("lemotdepasse","FaceBook",64))
     print(H("lemotdepasse","Youtube",64))
     print("-----------------")
     print(H("lemotdepasse","Unilim",1))
     print(H("lemotdepasse","Unilim",2))
     print(H("lemotdepasse","Unilim",3))
-"""
+

@@ -1,29 +1,31 @@
 import Exercice2 as E2
 import Exercice3 as E3
 
-def BruteForce(MdpMaitre:str , Tag:str , taille:int)->str:
+import itertools
+
+def BruteForce(MdpMaitre: str, Tag: str, taille: int) -> str:
     """
-        Trouve le mot de passe maître en utilisant la force brute.
-        Args:
-            MdpMaitre (str): Le mot de passe maître.
-            Tag (str): Le tag.
-            taille (int): La taille du mot de passe.
-        Returns:
-            str: Le mot de passe trouvé.
+    Trouve le mot de passe maître en utilisant la force brute.
+    
+    Args:
+        MdpMaitre (str): Le mot de passe maître.
+        Tag (str): Le tag.
+        taille (int): La taille du mot de passe.
+        
+    Returns:
+        str: Le mot de passe trouvé.
     """
-    for i in range(33, 127):
-        for j in range(33, 127):
-            for k in range(33, 127):
-                for l in range(33, 127):
-                    for m in range(33, 127):
-                        for n in range(33, 127):
-                            for o in range(33, 127):
-                                for p in range(33, 127):
-                                    for q in range(33, 127):
-                                        for r in range(33, 127):
-                                            mdp = chr(i)+chr(j)+chr(k)+chr(l)+chr(m)+chr(n)+chr(o)+chr(p)+chr(q)+chr(r)
-                                            if E2.H(mdp, Tag, taille) == MdpMaitre:
-                                                return mdp
+    # Définit les caractères possibles (ASCII entre 33 et 126)
+    caracteres = [chr(i) for i in range(33, 127)]
+    
+    # Génère toutes les combinaisons possibles pour un mot de passe de longueur "taille"
+    for combinaison in itertools.product(caracteres, repeat=taille):
+        mdp = ''.join(combinaison)
+        
+        # Vérifie si le mot de passe généré correspond
+        if E2.H(mdp, Tag, taille) == MdpMaitre:
+            return mdp
+
     
     return None
 
