@@ -29,6 +29,32 @@ def BruteForce(MdpMaitre: str, Tag: str, taille: int) -> str:
     
     return None
 
+def BruteForceMultiTag(MdpMaitre: str, Tag1: str , Tag2:str, Tag3:str, taille: int) -> str:
+    """
+    Trouve le mot de passe maître en utilisant la force brute.
+    
+    Args:
+        MdpMaitre (str): Le mot de passe maître.
+        Tag (list): Liste de tag.
+        taille (int): La taille du mot de passe.
+        
+    Returns:
+        str: Le mot de passe trouvé.
+    """
+    # Définit les caractères possibles (ASCII entre 33 et 126)
+    caracteres = [chr(i) for i in range(33, 127)]
+    
+    # Génère toutes les combinaisons possibles pour un mot de passe de longueur "taille"
+    for combinaison in itertools.product(caracteres, repeat=taille):
+        mdp = ''.join(combinaison)
+        
+        # Vérifie si le mot de passe généré correspond
+        if E2.H(mdp,Tag1 , taille) == MdpMaitre and E2.H(mdp,Tag2 , taille) == MdpMaitre and E2.H(mdp,Tag3 , taille) == MdpMaitre:
+            return mdp
+
+    
+    return None
+
 def Exercice4():
     """
         Fonction principale de l'exercice 4.
