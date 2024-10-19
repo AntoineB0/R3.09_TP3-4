@@ -47,10 +47,14 @@ def BruteForceMultiTag(MdpMaitre1: str, MdpMaitre2: str,MdpMaitre3: str,Tag1: st
     """
     # Définit les caractères possibles (ASCII entre 33 et 126)
     caracteres = [chr(i) for i in range(33, 127)]
+    essaie = 0
     
     # Génère toutes les combinaisons possibles pour un mot de passe de longueur "taille"
     for combinaison in itertools.product(caracteres, repeat=10):
         mdp = ''.join(combinaison)
+        essaie += 1
+        if essaie % 1000 == 0:
+            print("Nombre d'essais : ", essaie)
         
         # Vérifie si le mot de passe généré correspond aux trois tags ce qui permet de trouver la clé exacte
         if E2.H(mdp,Tag1 , taille) == MdpMaitre1 and E2.H(mdp,Tag2 , taille) == MdpMaitre2 and E2.H(mdp,Tag3 , taille) == MdpMaitre3:
